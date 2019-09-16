@@ -10,4 +10,5 @@ for n in range(0, height):
     if width % wid
     for d in range(0, width):
 
+#Her er en kommentar
 
