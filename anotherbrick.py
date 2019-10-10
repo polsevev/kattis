@@ -1,14 +1,28 @@
 a = input()
-f = a.split(" ")
-height = int(f[0])
-width = int(f[1])
-numberOfBricks = int(f[2])
-x = input()
-widthOfBricks = x.split(" ")
+b = a.split(" ")
+height = int(b[0])
+width1 = int(b[1])
+bricks = int(b[2])
 
+c = input()
+widthOfBricks = c.split(" ")
+heightWeAreOn = 0
+widthOfCurrentWall = 0
+i = -1
 for n in range(0, height):
-    if width % wid
-    for d in range(0, width):
+    widthOfCurrentWall = 0
+    while True:
+        i = i+1
+        widthOfCurrentWall = widthOfCurrentWall + int(widthOfBricks[i])
+        if widthOfCurrentWall == width1:
+            heightWeAreOn = heightWeAreOn +1
+            break
+        elif widthOfCurrentWall > width1:
+            print("NO")
+            exit()
 
-#Her er en kommentar
 
+if heightWeAreOn == height and widthOfCurrentWall == width1:
+    print("YES")
+else:
+    print("NO")
