@@ -1,47 +1,56 @@
-a = input()
-b = a.split(" ")
-rows = int(b[0])
-column = int(b[1])
-start = int(b[2])
-map = []
-for n in range(0, column):
-    map.append([])
-    for a in range(0, rows):
-        map[n].append(0)
-listOfWeak = []
-for c in range(0, start):
-    a = input()
-    b = a.split(" ")
-    listOfWeak.append([int(b[0])-1, int(b[1])-1])
+brukerInn = input()
+listeAvBrukerInn = brukerInn.split(" ")
+x = int(listeAvBrukerInn[0])
+y = int(listeAvBrukerInn[1])
+weak = int(listeAvBrukerInn[2])
+a = []
+for n in range(0, y):
+    a.append([])
+    for d in range(0, x):
+        a[n].append(0)
+for n in range(0, weak):
+    brukerInn = input()
+    brukerListe = brukerInn.split(" ")
+    x1 = int(brukerListe[1])
+    y1 = int(brukerListe[0])
+    a[x1-1][y1-1] = 1
 
-for a in range(0, len(listOfWeak)):
-    map[listOfWeak[a][1]][listOfWeak[a][0]] = 1
-teller = 0
+
+g = []
+d = []
+for b in range(0, len(a)):
+    g.append([])
+    for c in range(0, len(a[b])):
+        g[b].append(0)
+for b in range(0, len(a)):
+    d.append([])
+    for c in range(0, len(a[b])):
+        d[b].append(1)
+i = 1
 while True:
-    summen = 0
-    if len(map)*len(map[0]) == summen:
+
+    if g == d:
         break
-    for a in range(0, len(map)):
-        for b in range(0, len(map[a])):
-            if map[a][b] == 1:
-                if a-1 >=0:
-                    map[a-1][b] = 1
-                if a+1 <= column-1:
-                    map[a + 1][b] = 1
-                if b-1 >= 0:
-                    map[a][b-1] = 1
-                if b+1 <= rows -1:
-                    map[a][b+1] = 1
+    else:
+        for n in range(0, len(a)):
+            for f in range(0, len(a[n])):
+                if a[n][f] == 1:
+                    if n!=0:
+                        g[n-1][f] = 1
+                    if n != y-1:
+                        g[n+1][f] = 1
+                    if f != 0:
+                        g[n][f-1] = 1
+                    if f != x-1:
+                        g[n][f+1] = 1
 
-    for n in range(0, len(map)):
-        print(map[n])
-        summen = summen + sum(map[n])
-    print(summen)
-    if summen == 12:
-        break
-    teller = teller +1
+        a = []
+        for b in range(0, len(g)):
+            a.append([])
+            for c in range(0, len(g[b])):
+                a[b].append(g[b][c])
+        if i == 1 and g == d:
+            break
 
-print(teller)
-
-
-
+        i = i + 1
+print(i)
