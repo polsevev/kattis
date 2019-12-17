@@ -1,34 +1,23 @@
-a = input()
-b = input()
-isEqual = "No"
+S = input()
+P = input()
+accepted = False
 
-if b == a:
-    isEqual = "Yes"
-
-for n in range(0, 9):
-    add = str(n) + b
-    if add == a:
-        isEqual = "Yes"
+if P == S:
+   accepted = True
+for n in range(0, 10):
+    a = str(n) + P
+    if a == S:
+        accepted = True
         break
-
-for n in range(0, 9):
-    add = b + str(n)
-    if add == a:
-        isEqual = "Yes"
+for n in range(0, 10):
+    a = P + str(n)
+    if a == S:
+        accepted = True
         break
+if P.swapcase() == S:
+    accepted = True
 
-c = []
-d = ""
-for n in range(0, len(b)):
-    if b[n].isupper():
-        c.append(b[n].lower())
-    elif b[n].islower():
-        c.append(b[n].upper())
-    elif 47 < ord(b[n]) < 58:
-        c.append(b[n])
-    d = "".join(c)
-
-if d == a:
-    isEqual = "Yes"
-print(isEqual)
-
+if accepted:
+    print("Yes")
+else:
+    print("No")

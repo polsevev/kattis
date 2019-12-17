@@ -1,4 +1,2 @@
-if "C" == "c":
-    print("Yes")
-else:
-    print("no")
+for n in range(0, 9):
+    print(n)

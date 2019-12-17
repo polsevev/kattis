@@ -21,5 +21,12 @@ for yikes in range(a):
         yikes += int(M**0.5)
         bikes += int(M**0.5)
     sortedBitch = []
-    
-
+    for n in range(0, int(M**0.5)):
+        i = (int(M**0.5) -1)
+        while i >= 0:
+            sortedBitch.append(listeAvLister[i][n])
+            i -=1
+    if "*" in sortedBitch:
+        sortedBitch.remove("*")
+    kombi = "".join(sortedBitch)
+    print(kombi)
